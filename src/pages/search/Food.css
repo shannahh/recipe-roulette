@@ -38,7 +38,7 @@ display: table-row;
     color: black;
     border-color: #00A19D;
 }
-form button {
+.search-button {
     width: 150px;
     height: 47px;
     margin-right: 50px;

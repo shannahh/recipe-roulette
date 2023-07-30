@@ -113,6 +113,8 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
 }
 
 nav {
@@ -133,7 +135,12 @@ nav a:hover {
 
 
 }
-
+h2{
+    color: white;
+}
+i{
+    color: white
+}
 ul {
     list-style-type: none;
     flex-basis: 550px;
@@ -142,8 +149,11 @@ ul {
     align-items: center;
     cursor: pointer;
 
-}
 
+}
+li{
+    color: white;
+}
 /*-------------Transition in-out while hovering over button--------*/
 li:hover{
     background-color: #6d76f7;

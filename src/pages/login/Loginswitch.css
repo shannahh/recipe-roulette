@@ -1,0 +1,51 @@
+.Loginswitch {
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: url("../../assets/raw-garganelli-pasta-with-halved-tomatoes-basil-corner-black-textured-backdrop.jpg") ;
+
+
+}
+h1{
+    color: white;
+}
+p{
+    color: white;
+    font-size: 11px;
+}
+.auth-form-container, .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+
+}
+label {
+    text-align: left;
+    padding: 0.25rem 0;
+    color: white;
+}
+.Log-button {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #00A19D;
+    color: white;
+    margin-top:10px ;
+    margin-left: 20px;
+
+}
+.link-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+
+}
+
+
+
+

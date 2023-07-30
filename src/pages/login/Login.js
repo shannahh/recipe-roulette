@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../../firebase"
+import {Button} from "../../Components/button/Button";
 
 
 
@@ -28,21 +29,29 @@ const Login = (props) => {
         <div className={'auth-form-container'}>
 
 
-            <form onSubmit={handleSubmit}>
-                <h1> Log in to your account </h1>
-                <input type={"email"} placeholder={"Enter your email"}
+            <form className={"login-form"} onSubmit={handleSubmit}>
+                <h1> Log In </h1>
+                <label htmlFor={"email"}> Email</label>
+                <input id={"email-input"} type={"email"} placeholder={"youremail@gmail.com"}
                        value={email}
                        onChange={(e) =>setEmail (e.target.value)}
 
                 ></input>
-                <input type={"password"} placeholder={'Enter your password'}
+                <label htmlFor={"password"}> Password</label>
+                <input id={"password-input"} type={"password"} placeholder={'********'}
                        value={password}
                        onChange={(e) =>setPassword (e.target.value)}
                 ></input>
-                <button type={"submit"}>Log In</button>
+
+
+                <button id={"submit-button"} className={"Log-button"} type={"submit"}> Log In </button>
 
             </form>
-            <button onClick={() => props.onFormSwitch('register')}> Don't have an account? Register here.</button>
+            <div className={'register-here-button'}>
+            <button className={"link-btn"} onClick={() => props.onFormSwitch('register')}> Don't have an account? Register here.</button>
+                <p>Image by Freepik</p>
+        </div>
+
 
 
         </div>

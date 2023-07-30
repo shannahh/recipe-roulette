@@ -59,8 +59,10 @@ const Food = () =>{
             </div>
             <div className='container-form'>
                 <form onSubmit={finalSearch}>
-                    <input value={mySearch} onChange={myRecipeSearch} placeholder='Type one or more ingredients'/>
-                    <button className={'search-button'}>Search </button>
+                    <input id={"search-bar-input"} value={mySearch} onChange={myRecipeSearch} placeholder='Type one or more ingredients'/>
+
+                    <button id={"search-button"} form={"search"} className={'search-button'}>Search </button>
+
 
 
                     <div className={'filter'}>
