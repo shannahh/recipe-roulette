@@ -34,7 +34,7 @@ class NavBar extends Component {
                     })}
 
                 </ul>
-                <Button> Sign Up/Login</Button>
+                <Button> Sign Up/register</Button>
 
 
             </nav>
@@ -51,9 +51,10 @@ class NavBar extends Component {
                     <li>Home</li>
                     <li>About</li>
                     <li>Search</li>
-                    <li>Contact</li>
+                    <li>Contact us</li>
+
                 </ul>
-                <Button> Sign up</Button>
+                <Button> Login </Button>
             </div>
         </nav>
     );

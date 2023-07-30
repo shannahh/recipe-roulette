@@ -3,30 +3,38 @@ import NavBar from "./Components/Navigation Bar/NavBar";
 import Food from "./pages/search/Food";
 import  {Routes, Route} from 'react-router-dom';
 import Homepage from "./pages/home/Homepage"
+import Login from "./pages/login/Login"
+import React, {useState} from "react";
+import {Register} from "./pages/register/Register";
+import Loginswitch from "./pages/login/Loginswitch";
+
 
 
 
 function App() {
+
   return (
       <>
 
-         <div className={"NavBarItems"}>
+         <div className={"App"}>
              <NavBar/>
+
 <Routes>
-    <Route path="/Home" element={<Homepage/>} />
+         <Route path="/" element={<Homepage/>} />
          <Route path={"/search"} element={<Food/>} />
+    <Route path ={"/login"} element={<Loginswitch/>} />
+
+
 
 
 
 </Routes>
 
+
          </div>
 
 
-        <main >
 
-<h1> Hello</h1>
-        </main>
 
       </>
 
@@ -34,11 +42,3 @@ function App() {
 }
 
 export default App;
-/* <header className="App-header">
-
-        <h1> Recipe Roulette</h1>
-
-              <h2> When choosing a recipe costs too much energy</h2>
-
-
-      </header> */

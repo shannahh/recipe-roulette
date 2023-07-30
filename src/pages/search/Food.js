@@ -19,6 +19,9 @@ const Food = () =>{
     const [myRecipes, setMyRecipes] = useState([]);
     const [wordSubmitted, setWordSubmitted] = useState("random")
     const MySwal = withReactContent(Swal)
+    const [diet, setDiet] = useState('');
+    const [allergy, setAllergy] = useState('');
+    const [cuisineType, setCuisineType] = useState('')
 
     useEffect(() =>{
         const getRecipe = async () =>{
@@ -51,13 +54,41 @@ const Food = () =>{
     return (
         <div>
             <div className='container-top'>
-                <Header title={"Find a recipe"} />
-                <p>Recipe Search API - Search over 2.3 million recipes by diets, calories and nutrient ranges</p>
+                <Header title={"Find a recipe"}  />
+
             </div>
             <div className='container-form'>
                 <form onSubmit={finalSearch}>
                     <input value={mySearch} onChange={myRecipeSearch} placeholder='Type one or more ingredients'/>
                     <button className={'search-button'}>Search </button>
+
+
+                    <div className={'filter'}>
+                        <select value={diet} onChange={(e) => setDiet(e.target.value)}>
+                            <option value="">Any Diet</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="high-protein">High Protein</option>
+                            <option value="low-fat">Low Fat</option>
+                            <option value="low-carb">Low Carb</option>
+                        </select>
+                        <select value={allergy} onChange={(e) => setAllergy(e.target.value)}>
+                            <option value="">No Allergy</option>
+                            <option value="alcohol-free">Alcohol Free</option>
+                            <option value="peanut-free">Peanut Free</option>
+                            <option value="dairy-free">Dairy Free</option>
+                            <option value="gluten-free">Gluten Free</option>
+                            <option value="tree-nut-free">Tree Nut Free</option>
+                        </select>
+                        <select value={cuisineType} onChange={(e) => setCuisineType(e.target.value)}>
+                            <option value="">Any Cuisine</option>
+                            <option value="american">American</option>
+                            <option value="asian">Asian</option>
+                            <option value="indian">Indian</option>
+                            <option value="gluten-free">Gluten Free</option>
+                            <option value="tree-nut-free">Tree Nut Free</option>
+                        </select>
+                    </div>
+
 
                 </form>
             </div>
@@ -74,6 +105,7 @@ const Food = () =>{
                              totalNutrientsCarbs={element.recipe.totalNutrients.CHOCDF.quantity}
                              totalTime={element.recipe.totalTime}
                              ingredientLines={element.recipe.ingredientLines}
+                             url={element.recipe.url}
 
                     />
                 ))}

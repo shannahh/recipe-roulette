@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-function Recipes({label, image, calories, totalNutrientsProtein, totalTime, ingredientLines, totalNutrientsFat, totalNutrientsCarbs}){
+function Recipes({label, image, calories, totalNutrientsProtein, totalTime, ingredientLines, totalNutrientsFat, totalNutrientsCarbs, url}){
     const MySwal = withReactContent(Swal)
 
     const sweetAlert = () =>{
@@ -28,6 +28,8 @@ function Recipes({label, image, calories, totalNutrientsProtein, totalTime, ingr
             <p className='p-text'> Carbs <b> {totalNutrientsCarbs.toFixed()} g</b></p>
 
             <button onClick={sweetAlert} className="view-btn">View ingredients </button>
+
+            <p className='red'>View full recipe <a  className='link' href={ url }>here </a> </p>
         </div>
     )
 }
