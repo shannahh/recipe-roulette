@@ -1,18 +1,18 @@
 import React,{useState} from 'react';
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../../firebase";
-import {Button} from "../../Components/button/Button";
+
 
 
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('')
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then ((userCredential) => {
                 console.log(userCredential)
 
@@ -26,8 +26,10 @@ export const Register = (props) => {
 <div className={'auth-form-container'}>
         <form className={"register-form"} onSubmit={handleSubmit}>
             <h1> Create an account </h1>
-            <label htmlFor={"email"}> Full name</label>
-            <input value={name} name={"name"} placeholder={"Enter your full name"}/>
+
+
+
+
             <label htmlFor={"email"}> Email</label>
             <input type={"email"} placeholder={"Enter your email"}
                    value={email}

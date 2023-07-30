@@ -1,6 +1,46 @@
-# Getting Started with Create React App
+# Getting Started with Recipe Roulette
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Inleiding
+In Recipe Roulette kan een gebruiker verschillende recepten opzoeken, 
+met of zonder hulp van filters. Een gebruiker kan zich registreren en inloggen.
+Gegevens van gebruikers worden opgeslagen in Firebase. 
+De gebruiker kan naar de Home, About, Contact Us en Search navigeren.
+
+## 2. Screenshot![Screenshot 2023-07-30 at 18.13.25.png](public%2FScreenshot%202023-07-30%20at%2018.13.25.png)
+## 3. Benodigdheden
+Voor deze applicatie heb ik gebruik gemaakt van WebStorm als runtime 
+environment waar de applicatie uitgevoerd word. Daarnaast zijn nog een aantal dingen nodig. 
+### API key: b46ae0df2d01318c56d90f63a5959980
+### YOUR_APP_ID = 'd69c0a8f'
+
+
+
+## 4. Applicatie draaien
+Click op de link om naar het project te gaan. Hier kan je het project clonen.
+https://github.com/shannahh/recipe-roulette
+
+In the terminal type:
+### `npm install`
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+
+
+
+## 5. Overige commando's
+
+
+
 
 ## Available Scripts
 
@@ -39,32 +79,5 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Available Scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

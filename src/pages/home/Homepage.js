@@ -2,7 +2,7 @@ import React from 'react';
 import './Homepage.css';
 import Header from "../../Components/header/Header";
 import {Link} from "react-router-dom";
-import Card from "../../Components/Card";
+import Card from "../../Components/card/Card";
 
 
 function Homepage(){
