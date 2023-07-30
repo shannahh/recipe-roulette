@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useEffect, useState } from 'react';
 import Recipes from "./Recipes";
-import icon from '../../assets/icon-search.png'
+
 import './Food.css'
 
 import Header from "../../Components/header/Header";

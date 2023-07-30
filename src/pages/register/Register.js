@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../../firebase";
-import {Link} from "react-router-dom";
+
 
 
 export const Register = (props) => {
