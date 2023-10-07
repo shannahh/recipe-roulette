@@ -1,40 +1,52 @@
-import React,{useState} from 'react';
-import { signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from "../../firebase"
+import React, { useState} from 'react';
 
+import {useNavigate} from "react-router-dom"
+
+import {UserAuth} from "../../AuthContext";
 
 
 
 const Login = (props) => {
+    const {signIn} = UserAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] =useState('');
+    const navigate = useNavigate();
 
-
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then ((userCredential) => {
-                console.log(userCredential)
+        setError('')
+        try {
+            await signIn(email, password)
+            navigate('/account')
+
+        } catch (e) {
+            setError(e.message)
+            console.log(e.message)
+        };
 
 
-            }) .catch((error) => {
-            console.log(error)
-        })
     }
+
+
+
+
 
 
     return(
         <>
+
         <div className={'auth-form-container'}>
 
 
             <form className={"login-form"} onSubmit={handleSubmit}>
+
                 <h1> Log In </h1>
                 <label htmlFor={"email"}> Email</label>
                 <input id={"email-input"} type={"email"} placeholder={"youremail@gmail.com"}
                        value={email}
                        onChange={(e) =>setEmail (e.target.value)}
+
 
                 ></input>
                 <label htmlFor={"password"}> Password</label>

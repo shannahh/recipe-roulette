@@ -3,31 +3,46 @@ import NavBar from "./Components/Navigation Bar/NavBar";
 import Food from "./pages/search/Food";
 import  {Routes, Route} from 'react-router-dom';
 import Homepage from "./pages/home/Homepage"
-import {BrowserRouter} from "react-router-dom";
+
 
 import React, {useState} from "react";
-
 import Loginswitch from "./pages/login/Loginswitch";
+import AccountUser from "./pages/Signed In Pages/account/AccountUser";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import FavoritesPage from "./FavoritesPage";
+
+
 
 
 
 
 function App() {
 
+
   return (
       <>
+<NavBar/>
 
          <div className={"App"}>
-             <NavBar/>
+
 
 
 <Routes>
+
          <Route path="/" element={<Homepage/>} />
-         <Route path={"/search"} element={<Food/>} />
-    <Route path ={"/login"} element={<Loginswitch/>} />
 
+         <Route path ={"/login"} element={<Loginswitch/>} />
 
+    <Route path={"/account"} element={
+        <ProtectedRoute>
+        <AccountUser/>
 
+        </ProtectedRoute>}/>
+
+    <Route path={"/search"} element={
+        <ProtectedRoute>
+        <Food/>
+        </ProtectedRoute>} />
 
 
 </Routes>

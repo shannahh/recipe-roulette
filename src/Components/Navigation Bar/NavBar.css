@@ -150,16 +150,23 @@ ul {
     cursor: pointer;
 
 
+
+
 }
+
 li{
     color: white;
 }
 /*-------------Transition in-out while hovering over button--------*/
+li.active {
+    text-decoration: underline ;
+}
 li:hover{
     background-color: #6d76f7;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
+
 
 /*----------Round the corners for the button----------*/
 

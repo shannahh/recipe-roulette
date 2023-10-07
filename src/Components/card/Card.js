@@ -3,7 +3,7 @@ import React from "react";
 function Card(props){
     return (
         <article className={"card"}>
-            <image src={props.image} alt={props.image}  />
+            <img src={props.image} alt={props.image}/>
             <h2 className={"card-name"}> {props.title}</h2>
             <p className={"card-description"} > {props.description} </p>
 

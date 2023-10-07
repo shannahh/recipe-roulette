@@ -26,22 +26,27 @@ main {
     margin: 20px;
     flex-grow: 0;
     flex-shrink: 0;
+
+
 }
+
 
 .card-name {
     font-weight: 300;
-    color: #df7c6d;
+    color: white;
     margin: 20px 0;
+    background-color: #00A19D;
+    border-radius: 4px;
 }
 
 .card-description {
     font-weight: 200;
     font-size: 16px;
     text-align: justify;
-    color: #333333;
+    color: white;
 }
 
-.product img {
+.card img {
     width: 100%;
 }
 @media screen and (max-width: 1200px) {

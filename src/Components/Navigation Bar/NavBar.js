@@ -1,63 +1,47 @@
-import './NavBar.css'
-import React,{Component} from "react";
-import {MenuItems} from "./MenuItems"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Button} from "../button/Button"
-import {faBowlFood} from "@fortawesome/free-solid-svg-icons";
+import {Link, NavLink} from "react-router-dom";
+import { Button } from "../button/Button";
+import React, { useContext } from "react";
+import { UserAuth } from "../../AuthContext"; // Import your authentication context here
+import {auth, app} from "../../firebase"
+import "./NavBar.css";
+import Authentication from "../../Authentication";
+
+function NavBar() {
 
 
-
-/*
-class NavBar extends Component {
-    state = {clicked: false}
-    handleClick = () => {
-        this.setState({clicked: !this.state.clicked})
-}
-    render() {
-        return(
-            <nav className={"NavBarItems"}>
-                <h1 className={"navbar-logo"}>Recipe Roulette<i className="fa-solid fa-bowl-food"></i> </h1>
-                <div className={"menu-icon"} onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}> </i>
-
-                </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) =>{
-                        return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
-                            </li>
-                        )
-
-                    })}
-
-                </ul>
-                <Button> Sign Up/register</Button>
-
-
-            </nav>
-        )
-    }
-} */
- function NavBar() {
     return (
         <nav>
             <div className="nav-container">
-                <h2>Recipe Roulette <i className="fa-solid fa-bowl-food"></i> </h2>
+                <h2>
+                    Recipe Roulette <i className="fa-solid fa-bowl-food"></i>{" "}
+                </h2>
 
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Search</li>
-                    <li>Contact us</li>
+                    <NavLink to={"/"}>
+                        <li>Home</li>
+                    </NavLink>
 
+                    <li>About</li>
+
+                    <li>Contact us</li>
+                    <Authentication/>
                 </ul>
-                <Button> Login </Button>
+
+
+
+
+
             </div>
         </nav>
     );
 }
 
 export default NavBar;
+
+
+
+
+
+
+
+
