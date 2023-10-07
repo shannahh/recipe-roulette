@@ -9,7 +9,8 @@ import React, {useState} from "react";
 import Loginswitch from "./pages/login/Loginswitch";
 import AccountUser from "./pages/Signed In Pages/account/AccountUser";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import FavoritesPage from "./FavoritesPage";
+
+import About from "./pages/about/About";
 
 
 
@@ -30,8 +31,9 @@ function App() {
 <Routes>
 
          <Route path="/" element={<Homepage/>} />
-
          <Route path ={"/login"} element={<Loginswitch/>} />
+
+         <Route path ={"/about"} element={<About/>} />
 
     <Route path={"/account"} element={
         <ProtectedRoute>
