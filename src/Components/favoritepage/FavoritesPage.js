@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Recipes from "./pages/search/Recipes"; // Import the Recipes component for rendering favorite recipes
+import Recipes from "../../pages/search/Recipes"; // Import the Recipes component for rendering favorite recipes
 import "./FavoritesPage.css";
 
 function FavoritesPage({ favoriteRecipes, removeFromFavorites }) {

@@ -5,11 +5,11 @@ import Recipes from "./Recipes";
 import './Food.css';
 import Header from "../../Components/header/Header";
 import { Link } from "react-router-dom";
-import FavoritesPage from "../../FavoritesPage";
+import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
 
 const Food = () => {
     const YOUR_APP_ID = 'd69c0a8f';
-    const YOUR_APP_KEY = '169966af5396f5284ffef09e4be29ffe';
+    const YOUR_APP_KEY = '8fecaa16efbf92686161a06338315d3c';
 
     const [mySearch, setMySearch] = useState("");
     const [myRecipes, setMyRecipes] = useState([]);

@@ -1,8 +1,6 @@
 import {Link, NavLink} from "react-router-dom";
-import { Button } from "../button/Button";
 import React, { useContext } from "react";
-import { UserAuth } from "../../AuthContext"; // Import your authentication context here
-import {auth, app} from "../../firebase"
+import {app} from "../../firebase"
 import "./NavBar.css";
 import Authentication from "../../Authentication";
 
@@ -24,7 +22,8 @@ function NavBar() {
                     <NavLink to={"/about"}> <li>About</li>
                     </NavLink>
 
-                    <li>Contact us</li>
+                    <NavLink to={"/contact"}> <li>Contact us</li>
+                    </NavLink>
                     <Authentication/>
                 </ul>
 

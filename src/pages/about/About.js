@@ -8,14 +8,9 @@ const AboutPage = () => {
         <div className="about-page">
             <h1>About Us</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor mi
-                ut quam lacinia, vel luctus quam iaculis. Sed eget est id erat
-                bibendum congue. Donec eget libero nec libero facilisis vehicula vel eu
-                nulla. Sed sed neque ipsum. Sed non turpis eu ex dictum tempor. Nulla
-                facilisi. Sed vel justo mi. Nullam venenatis urna auctor, tempus odio
-                non, malesuada leo. Vestibulum ante ipsum primis in faucibus orci luctus
-                et ultrices posuere cubilia Curae; Etiam hendrerit erat non quam
-                efficitur, non suscipit sapien euismod. Sed in fermentum elit.
+               Recipe Roulette is a school project. Its purpose was to learn more about Frontend development
+                using React Javascript. This is a basic application to search for recipes and for the indecisive that
+                can't seem to pick a recipe. So far I've learned a lot, and hope to continue to optimize this application.
             </p>
             <Link to={"/about"}></Link>
         </div>
