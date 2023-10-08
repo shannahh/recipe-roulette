@@ -11,8 +11,8 @@ De gebruiker kan naar de Home, About, Contact Us en Search navigeren.
 ## 3. Benodigdheden
 Voor deze applicatie heb ik gebruik gemaakt van WebStorm als runtime 
 environment waar de applicatie uitgevoerd word. Daarnaast zijn nog een aantal dingen nodig. 
-### API key: b46ae0df2d01318c56d90f63a5959980
-### YOUR_APP_ID = 'd69c0a8f'
+### API key
+### YOUR_APP_ID 
 
 
 
