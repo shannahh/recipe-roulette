@@ -9,11 +9,11 @@ import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
 
 const Food = () => {
     const YOUR_APP_ID = 'd69c0a8f';
-    const YOUR_APP_KEY = '8fecaa16efbf92686161a06338315d3c';
+    const YOUR_APP_KEY = 'ca5507f8e9500d90455e930c1aa2dc7b';
 
     const [mySearch, setMySearch] = useState("");
     const [myRecipes, setMyRecipes] = useState([]);
-    const [wordSubmitted, setWordSubmitted] = useState("random");
+    const [wordSubmitted, setWordSubmitted] = useState("");
     const MySwal = withReactContent(Swal);
     const [diet, setDiet] = useState('');
     const [allergy, setAllergy] = useState('');
@@ -37,27 +37,43 @@ const Food = () => {
 
     useEffect(() => {
         const getRecipe = async () => {
-            const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`);
+            const response = await fetch(wordSubmitted);
             const data = await response.json();
+
             if (data.count === 0) {
                 MySwal.fire({
-                    title: <p className='p-ing'>Not found{wordSubmitted}</p>,
+                    title: <p className='p-ing'>Not found for: {mySearch}</p>,
                     confirmButtonColor: "#00A19D",
                 });
-                setMySearch("");
+                setMyRecipes([]); // Clear recipes if not found
+            } else {
+                setMyRecipes(data.hits); // Update state with fetched recipes
             }
-            setMyRecipes(data.hits);
         };
-        getRecipe();
-    }, [wordSubmitted]);
+
+        if (wordSubmitted) { // Ensure that wordSubmitted is not empty before making a request
+            getRecipe();
+        }
+    }, [wordSubmitted]); // Dependency array includes wordSubmitted to trigger fetch when it changes
 
     const myRecipeSearch = (e) => {
         setMySearch(e.target.value);
     };
 
     const finalSearch = (e) => {
-        setWordSubmitted(mySearch);
-        e.preventDefault();
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        // Prepare and format the API URL
+        const filterParams = [];
+        if (diet) filterParams.push(`diet=${diet}`);
+        if (allergy) filterParams.push(`health=${allergy}`); // 'health' for allergy filters in the API
+        if (cuisineType) filterParams.push(`cuisineType=${cuisineType}`);
+
+        const filters = filterParams.length > 0 ? `&${filterParams.join('&')}` : '';
+
+        const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${mySearch}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}${filters}`;
+
+        setWordSubmitted(apiUrl); // Submit the complete URL with filters included
     };
 
     return (

@@ -7,7 +7,6 @@ body{
 .container-form{
     display: flex;
     justify-content: center;
-    margin-top: 0px;
     align-items: stretch;
 
 
@@ -54,22 +53,25 @@ display: table-row;
 }
 
 
-.recipe-div{
-    background-color: #6568F4;
-    -webkit-box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);
-    -moz-box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);
-    box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);;
-    margin: 10px;
-    text-align: center;
-    width: 400px;
-    padding: 5px;
-    font-family: 'Lora', serif;
-}
-.recipes-div{
+.recipes-div {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+    flex-wrap: wrap; /* Allow wrapping of boxes */
+    justify-content: space-around; /* Space boxes evenly */
+}
+
+.recipe-div {
+    width: 300px; /* Consistent width */
+    min-height: 400px; /* Set a minimum height */
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 10px;
+    border-radius: 8px;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    justify-content: space-between; /* Distribute vertical space */
+    background-color: #6568F4;
 }
 
  p{
@@ -77,16 +79,26 @@ display: table-row;
 }
 
 
-.ingredients-ul{
+.ingredients-ul {
+    display: flex;           /* Use flexbox for horizontal layout */
+    flex-wrap: wrap;
     list-style-type: none;
-    font-family: 'Lora', serif;
-    color: black;
+    padding: 0;
+    margin: 0;
+    background-color: #00A19D;
+
 }
-.ingredients-ul li{
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    color: black;
+
+.ingredients-ul li {
+    margin-right: 15px;    /* Space between ingredients */
+    white-space: normal;    /* Prevent text from wrapping */
+}
+.swal2-popup .ingredients-ul {
+    display: block; /* Ensures block display */
+}
+
+.swal2-popup .ingredients-ul li {
+    display: block; /* Ensures list items stack vertically */
 }
 
 .view-btn{

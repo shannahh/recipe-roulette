@@ -1,34 +1,44 @@
 .account-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1) 100%); ;
-    text-align: center;
+    width: 400px; /* Maximum width for the container */
+    height: 300px;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 5px; /* Space inside the container */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgba(73, 63, 252, 1) 100%); /* Gradient background */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    justify-content: space-between; /* Distribute vertical space */
+
 }
 
 h1 {
-
-    margin-top: 0;
+    margin-top: 0; /* Remove default top margin */
+    font-size: 24px; /* Larger font size for the title */
+    color: white; /* White text color for better contrast */
 }
 
-p{
-    font-size: 16px;
+p {
+    font-size: 16px; /* Base font size */
+    color: white; /* White text color */
+    margin: 10px 0; /* Margin for spacing between paragraphs */
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 10px 20px; /* Padding for button */
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Slightly larger border radius */
+    cursor: pointer; /* Pointer cursor for hover */
+    font-size: 16px; /* Base font size */
+    transition: background 0.3s, color 0.3s; /* Smooth transition for background and text color */
 }
 
 button:hover {
-
-    background: white;
-    color: #6568F4;
+    background: white; /* Change background to white on hover */
+    color: #6568F4; /* Change text color on hover */
+    border: 1px solid #007bff; /* Add a blue border on hover for definition */
 }

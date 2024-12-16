@@ -15,7 +15,8 @@ function Recipes ({
                      url,
                     addToFavorites,
                     removeFromFavorites,
-                 })  {
+                 })
+{
     const MySwal = withReactContent(Swal);
     const [isFavorite, setIsFavorite] = useState(false);
 

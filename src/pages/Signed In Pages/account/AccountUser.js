@@ -1,34 +1,40 @@
-import React from 'react'
-import {Link, useNavigate} from "react-router-dom";
+import React from 'react';
+import {  useNavigate } from "react-router-dom";
+import { Button } from "../../../Components/button/Button";
+import { UserAuth } from "../../../AuthContext";
+import './AccountUser.css';
 
-import {Button} from "../../../Components/button/Button";
-import {UserAuth} from "../../../AuthContext";
-import './AccountUser.css'
 const AccountUser = () => {
-    const {user, logout} =UserAuth();
+    const { user, logout } = UserAuth();
     const navigate = useNavigate();
-    const handleLogout  = async () => {
+
+    const handleLogout = async () => {
         try {
-            await logout ();
+            await logout();
             navigate('/login');
-            console.log('You are logged out')
+            console.log('You are logged out');
         } catch (e) {
             console.log(e.message);
         }
-    }
+    };
 
     return (
-        <>
+        <main className="account-container"> {/* Gebruik <main> als semantisch element */}
+            <header>
+                <h1>Account</h1>
+            </header>
+            <section>
+                {user ? (
+                    <p>User Email: {user.email}</p>
+                ) : (
+                    <p>You are not logged in.</p>
+                )}
+            </section>
+            <footer>
+                <Button onClick={handleLogout}>Logout</Button>
+            </footer>
+        </main>
+    );
+};
 
-
-        <div className={"account-container"}>
-            <h1>Account</h1>
-            <p>User Email: {user && user.email} </p>
-            <Button onClick={handleLogout}>Logout</Button>
-            <Link to={"/account"}> </Link>
-        </div>
-            </>
-
-    )
-}
-export default AccountUser
+export default AccountUser;
