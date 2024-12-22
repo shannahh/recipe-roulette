@@ -71,7 +71,7 @@ const Food = () => {
         setMySearch(e.target.value);
     };
 
-    const finalSearch = (e) => {
+    const finalSearch = async(e) => {
         e.preventDefault(); // Prevent the form from submitting normally
 
         // Prepare and format the API URL
@@ -84,7 +84,26 @@ const Food = () => {
 
         const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${mySearch}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}${filters}`;
 
-        setWordSubmitted(apiUrl); // Submit the complete URL with filters included
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.count === 0) {
+                MySwal.fire({
+                    title: <p className='p-ing'>Not found for: {mySearch}</p>,
+                    confirmButtonColor: "#00A19D",
+                });
+                setMyRecipes([]); // Clear recipes if not found
+            } else {
+                setMyRecipes(data.hits); // Update state with fetched recipes
+            }
+        } catch (error) {
+            console.error("Error fetching recipes:", error);
+            MySwal.fire({
+                title: <p className='p-ing'>An error occurred while fetching recipes</p>,
+                confirmButtonColor: "#00A19D",
+            });
+        }
     };
 
     return (
