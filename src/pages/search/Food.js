@@ -18,13 +18,22 @@ const Food = () => {
     const [diet, setDiet] = useState('');
     const [allergy, setAllergy] = useState('');
     const [cuisineType, setCuisineType] = useState('');
+
+    //Favourite; saves after refresh
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+    useEffect(() => {
+        const savedFavorites = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+        setFavoriteRecipes(savedFavorites);
+    }, []);
+
     const [showFavorites, setShowFavorites] = useState(false);
 
+    //Remove Favorite Recipe
     const removeFromFavorites = (recipeToRemove) => {
-        const updatedFavorites = favoriteRecipes.filter((recipe) => recipe !== recipeToRemove);
+        const updatedFavorites = favoriteRecipes.filter((recipe) => recipe.label !== recipeToRemove.label);
 
         setFavoriteRecipes(updatedFavorites);
+        localStorage.setItem('favoriteRecipes', JSON.stringify(updatedFavorites));
     };
 
     const toggleFavorites = () => {
@@ -32,7 +41,9 @@ const Food = () => {
     };
 
     const addToFavorites = (recipe) => {
-        setFavoriteRecipes([...favoriteRecipes, recipe]);
+        const updatedFavorites = [...favoriteRecipes, recipe];
+        setFavoriteRecipes(updatedFavorites);
+        localStorage.setItem('favoriteRecipes', JSON.stringify(updatedFavorites));
     };
 
     useEffect(() => {
