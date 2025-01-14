@@ -1,18 +1,33 @@
 # Getting Started with Recipe Roulette
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inhoudsopgave:
+
+1. Inleiding
+2. Screenshot
+3. Benodigdheden
+4. Applicatie draaien
+5. Overige commando's
+6. Available Scripts
+
 ## 1. Inleiding
 In Recipe Roulette kan een gebruiker verschillende recepten opzoeken, 
 met of zonder hulp van filters. Een gebruiker kan zich registreren en inloggen.
 Gegevens van gebruikers worden opgeslagen in Firebase. 
 De gebruiker kan naar de Home, About, Contact Us en Search navigeren.
+Het is mogelijk als ingelogde gebruiker recepten op te slaan en via een knop een willekeurig recept
+uit te kiezen.
 
-## 2. Screenshot![Screenshot 2023-07-30 at 18.13.25.png](public%2FScreenshot%202023-07-30%20at%2018.13.25.png)
+## 2. Screenshot
+![Screenshot 2023-07-30 at 18.13.25.png](public%2FScreenshot%202023-07-30%20at%2018.13.25.png)
+
+
 ## 3. Benodigdheden
 Voor deze applicatie heb ik gebruik gemaakt van WebStorm als runtime 
-environment waar de applicatie uitgevoerd word. Daarnaast zijn nog een aantal dingen nodig. 
-### API key
-### YOUR_APP_ID 
+environment waar de applicatie uitgevoerd word. Daarnaast zijn nog een aantal dingen nodig.
+### - install Node.js
+### - API key
+### - YOUR_APP_ID 
 
 
 
