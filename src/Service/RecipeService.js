@@ -1,6 +1,7 @@
 const YOUR_APP_ID = 'd69c0a8f';
 const YOUR_APP_KEY = '1356aef348bcede81fae794742f196e1';
 
+
 export const fetchFilteredRecipes = async (ingredients, diet, allergy, cuisineType) => {
     const filterParams = [];
     if (diet) filterParams.push(`diet=${diet}`);
