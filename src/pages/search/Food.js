@@ -6,14 +6,12 @@ import './Food.css';
 import Header from "../../Components/header/Header";
 import { Link } from "react-router-dom";
 import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
+import {fetchFilteredRecipes} from "../../Service/RecipeService";
 
 const Food = () => {
-    const YOUR_APP_ID = 'd69c0a8f';
-    const YOUR_APP_KEY = 'ca5507f8e9500d90455e930c1aa2dc7b';
-
     const [mySearch, setMySearch] = useState("");
     const [myRecipes, setMyRecipes] = useState([]);
-    const [wordSubmitted, setWordSubmitted] = useState("");
+    const [wordSubmitted] = useState("");
     const MySwal = withReactContent(Swal);
     const [diet, setDiet] = useState('');
     const [allergy, setAllergy] = useState('');
@@ -71,21 +69,29 @@ const Food = () => {
         setMySearch(e.target.value);
     };
 
-    const finalSearch = (e) => {
+    const finalSearch = async (e) => {
         e.preventDefault(); // Prevent the form from submitting normally
+        try {
+            const data = await fetchFilteredRecipes(mySearch, diet, allergy, cuisineType);
 
-        // Prepare and format the API URL
-        const filterParams = [];
-        if (diet) filterParams.push(`diet=${diet}`);
-        if (allergy) filterParams.push(`health=${allergy}`); // 'health' for allergy filters in the API
-        if (cuisineType) filterParams.push(`cuisineType=${cuisineType}`);
+            if (!data || data.length === 0) {
+                MySwal.fire({
+                    title: <p className='p-ing'>Not found for: {mySearch}</p>,
+                    confirmButtonColor: "#00A19D",
+                });
+                setMyRecipes([]); // Clear myRecipes if no recipe found
+            } else {
+                setMyRecipes(data); // Update state with fetched recipes
+            }
+        } catch (error) {
+            MySwal.fire({
+                title: <p className='p-ing'>Error fetching data</p>,
+                confirmButtonColor: "#00A19D",
+                text: error.message || 'An unexpected error occurred.',
+            });
+        }
+    }
 
-        const filters = filterParams.length > 0 ? `&${filterParams.join('&')}` : '';
-
-        const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${mySearch}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}${filters}`;
-
-        setWordSubmitted(apiUrl); // Submit the complete URL with filters included
-    };
 
     return (
         <div>
