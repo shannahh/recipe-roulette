@@ -1,7 +1,7 @@
 import React from 'react';
 import {  useNavigate } from "react-router-dom";
 import { Button } from "../../../Components/button/Button";
-import { UserAuth } from "../../../AuthContext";
+import { UserAuth } from "../../../Context/AuthContext";
 import './AccountUser.css';
 
 const AccountUser = () => {
