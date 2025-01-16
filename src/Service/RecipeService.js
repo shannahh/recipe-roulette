@@ -1,7 +1,7 @@
 const YOUR_APP_ID = 'd69c0a8f';
 const YOUR_APP_KEY = '1356aef348bcede81fae794742f196e1';
 
-diet-function
+
 //Get recipes by diet
 export const fetchRecipesByDiet = async (ingredients, diet) => {
     const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredients}&diet=${diet}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
@@ -11,7 +11,7 @@ export const fetchRecipesByDiet = async (ingredients, diet) => {
 };
 
 
-master
+
 
 export const fetchFilteredRecipes = async (ingredients, diet, allergy, cuisineType) => {
     const filterParams = [];
