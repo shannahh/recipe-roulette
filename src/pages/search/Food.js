@@ -6,7 +6,7 @@ import './Food.css';
 import Header from "../../Components/header/Header";
 import { Link } from "react-router-dom";
 import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
-import {fetchFilteredRecipes} from "../../Service/RecipeService";
+import {fetchFilteredRecipes, fetchRecipesByDiet} from "../../Service/RecipeService";
 
 const Food = () => {
     const [mySearch, setMySearch] = useState("");
@@ -72,8 +72,20 @@ const Food = () => {
     const finalSearch = async (e) => {
         e.preventDefault(); // Prevent the form from submitting normally
         try {
-            const data = await fetchFilteredRecipes(mySearch, diet, allergy, cuisineType);
-
+            let data = [];
+            // Check if a diet has been selected
+            if (diet) {
+                // If a diet is selected, fetch recipes by diet even if mySearch is empty
+                data = await fetchRecipesByDiet(mySearch, diet);
+            }
+            // If no diet is selected, then check for mySearch input
+            else if (mySearch) {
+                data = await fetchFilteredRecipes(mySearch, diet, allergy, cuisineType);
+            }
+            // If no diet or mySearch is provided, simply fetch without additional filters
+            else {
+                data = await fetchFilteredRecipes('', diet, allergy, cuisineType);
+            }
             if (!data || data.length === 0) {
                 MySwal.fire({
                     title: <p className='p-ing'>Not found for: {mySearch}</p>,
