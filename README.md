@@ -1,6 +1,7 @@
 # Getting Started with Recipe Roulette
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Alt text](src/assets/Recipe%20Roulette.pdf.jpg)
 ## Inhoudsopgave:
 
 1. Inleiding
@@ -19,26 +20,29 @@ Het is mogelijk als ingelogde gebruiker recepten op te slaan en via een knop een
 uit te kiezen.
 
 ## 2. Screenshot
-![Screenshot 2023-07-30 at 18.13.25.png](public%2FScreenshot%202023-07-30%20at%2018.13.25.png)
+![Alt text](src/assets/Screenshot%202025-01-18%20at%2014.03.56.png)
 
 
 ## 3. Benodigdheden
-Voor deze applicatie heb ik gebruik gemaakt van WebStorm als runtime 
-environment waar de applicatie uitgevoerd word. Daarnaast zijn nog een aantal dingen nodig.
-### - install Node.js
-### - API key
-### - YOUR_APP_ID 
+Om de applicatie te kunnen draaien heb je de volgende nodig:
+
+ -**Node.js**: [Download en installeer Node.js](https://nodejs.org/) indien nog niet geïnstalleerd.
+
+ -**Webstorm** (optie): Voor IDE-gebruik. [Download WebStorm](https://www.jetbrains.com/webstorm/).
+ 
+-**API key en YOUR_APP_ID**: Deze roepen externe data op.
 
 
 
 ## 4. Applicatie draaien
-Click op de link om naar het project te gaan. Hier kan je het project clonen.
+1. **Click op de link om naar het project te gaan. Hier kan je het project clonen**:
 https://github.com/shannahh/recipe-roulette
 
-In the terminal type:
+
+2. **In the terminal type**:
 ### `npm install`
 
-In the project directory, you can run:
+3. **In the project directory, you can run**:
 
 ### `npm start`
 
@@ -54,7 +58,7 @@ You may also see any lint errors in the console.
 
 ## 5. Overige commando's
 
-
+Er kunnen specifieke scripts of instructies toegevoegd worden als onderdeel van je ontwikkeling of debugging proces.
 
 
 ## Available Scripts
@@ -94,5 +98,5 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Available Scripts
+
 
