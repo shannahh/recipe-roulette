@@ -1,5 +1,5 @@
 const YOUR_APP_ID = 'd69c0a8f';
-const YOUR_APP_KEY = '1356aef348bcede81fae794742f196e1';
+const YOUR_APP_KEY = '76e7e1c98bd5cb868dfa33fa1836d989';
 
 //Get recipes by diet
 export const fetchRecipesByDiet = async (ingredients, diet) => {
