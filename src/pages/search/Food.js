@@ -6,7 +6,12 @@ import './Food.css';
 import Header from "../../Components/header/Header";
 import { Link } from "react-router-dom";
 import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
-import {fetchFilteredRecipes, fetchRecipesByAllergy, fetchRecipesByDiet} from "../../Service/RecipeService";
+import {
+    fetchFilteredRecipes,
+    fetchRecipesByAllergy,
+    fetchRecipesByDiet,
+    fetchRecipesByIngredient
+} from "../../Service/RecipeService";
 
 const Food = () => {
     const [mySearch, setMySearch] = useState("");
@@ -73,19 +78,16 @@ const Food = () => {
         e.preventDefault(); // Prevent the form from submitting normally
         try {
             let data = [];
-            if(mySearch){
-            // Check if a diet has been selected
-            if (diet) {
-                // If a diet is selected, fetch recipes by diet even if mySearch is empty
-                data = await fetchRecipesByDiet(mySearch, diet);
-            } else if (allergy) {
-                data = await fetchRecipesByAllergy(mySearch, allergy)
-            }
-            // If no diet is selected, then check for mySearch input
-         else {
-                data = await fetchFilteredRecipes(mySearch, diet, allergy, cuisineType);
-            }
-            // If no diet or mySearch is provided, simply fetch without additional filters
+            if(mySearch) {
+                // Check if a diet has been selected
+                if (diet) {
+                    // If a diet is selected, fetch recipes by diet even if mySearch is empty
+                    data = await fetchRecipesByDiet(mySearch, diet);
+                } else if (allergy) {
+                    data = await fetchRecipesByAllergy(mySearch, allergy)
+                } else {
+                    data = await fetchRecipesByIngredient(mySearch);
+                }
         } else {
                 data = await fetchFilteredRecipes('', diet, allergy, cuisineType);
             }
