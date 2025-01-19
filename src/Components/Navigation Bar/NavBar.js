@@ -1,8 +1,7 @@
-import {Link, NavLink} from "react-router-dom";
-import React, { useContext } from "react";
-import {app} from "../../firebase"
+import {NavLink} from "react-router-dom";
+import React from "react";
 import "./NavBar.css";
-import Authentication from "../../Authentication";
+import Authentication from "./Authentication";
 
 function NavBar() {
 

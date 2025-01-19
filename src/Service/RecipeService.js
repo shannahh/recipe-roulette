@@ -43,6 +43,5 @@ export const fetchFilteredRecipes = async (ingredients, diet, allergy, cuisineTy
 
     const response = await fetch(apiUrl);
     const data = await response.json();
-    console.log(data);
     return data.hits;
 };

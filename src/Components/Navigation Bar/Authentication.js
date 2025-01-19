@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../src/firebase";
+import { auth } from "../../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { Button } from "./Components/button/Button";
+import { Button } from "../button/Button";
 import { NavLink } from "react-router-dom";
 
 

@@ -8,7 +8,7 @@ import Homepage from "./pages/home/Homepage"
 import React from "react";
 import Loginswitch from "./pages/login/Loginswitch";
 import AccountUser from "./pages/Signed In Pages/account/AccountUser";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import ProtectedRoute from "./Components/protected route/ProtectedRoute";
 
 import About from "./pages/about/About";
 import Footer from "./Components/footer/Footer";

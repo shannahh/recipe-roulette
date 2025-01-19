@@ -12,9 +12,8 @@ const AccountUser = () => {
         try {
             await logout();
             navigate('/login');
-            console.log('You are logged out');
         } catch (e) {
-            console.log(e.message);
+
         }
     };
 
