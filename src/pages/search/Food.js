@@ -6,6 +6,9 @@ import './Food.css';
 import Header from "../../Components/header/Header";
 import { Link } from "react-router-dom";
 import FavoritesPage from "../../Components/favoritepage/FavoritesPage";
+import { db, auth } from '../../firebase/firebase';
+import { doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
 import {
     fetchFilteredRecipes,
     fetchRecipesByAllergy,
@@ -23,32 +26,48 @@ const Food = () => {
     const [allergy, setAllergy] = useState('');
     const [cuisineType, setCuisineType] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showFavorites, setShowFavorites] = useState(false);
 
     //Favourite; saves after refresh
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+
     useEffect(() => {
-        const savedFavorites = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-        setFavoriteRecipes(savedFavorites);
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const docRef = doc(db, 'favorites', user.uid);
+                getDoc(docRef).then((docSnap) => {
+                    if (docSnap.exists()) {
+                        setFavoriteRecipes(docSnap.data().recipes);
+                    } else {
+                        setFavoriteRecipes([]); // Initialize if no favorites exist
+                    }
+                });
+            }
+        });
+
+        return () => unsubscribe();
     }, []);
 
-    const [showFavorites, setShowFavorites] = useState(false);
+    const addToFavorites = async (recipe) => {
+        const user = auth.currentUser;
+        if (user) {
+            const updatedFavorites = [...favoriteRecipes, recipe];
+            setFavoriteRecipes(updatedFavorites);
+            await setDoc(doc(db, 'favorites', user.uid), { recipes: updatedFavorites });
+        }
+    };
 
-    //Remove Favorite Recipe
-    const removeFromFavorites = (recipeToRemove) => {
-        const updatedFavorites = favoriteRecipes.filter((recipe) => recipe.label !== recipeToRemove.label);
-
-        setFavoriteRecipes(updatedFavorites);
-        localStorage.setItem('favoriteRecipes', JSON.stringify(updatedFavorites));
+    const removeFromFavorites = async (recipeToRemove) => {
+        const user = auth.currentUser;
+        if (user) {
+            const updatedFavorites = favoriteRecipes.filter(recipe => recipe.label !== recipeToRemove.label);
+            setFavoriteRecipes(updatedFavorites);
+            await updateDoc(doc(db, 'favorites', user.uid), { recipes: updatedFavorites });
+        }
     };
 
     const toggleFavorites = () => {
         setShowFavorites(!showFavorites);
-    };
-
-    const addToFavorites = (recipe) => {
-        const updatedFavorites = [...favoriteRecipes, recipe];
-        setFavoriteRecipes(updatedFavorites);
-        localStorage.setItem('favoriteRecipes', JSON.stringify(updatedFavorites));
     };
 
     useEffect(() => {
