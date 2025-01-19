@@ -8,13 +8,22 @@ export const fetchRecipesByDiet = async (ingredients, diet) => {
     const data = await response.json();
     return data.hits || [];
 };
-
+//recipes by allergy
 export const fetchRecipesByAllergy = async (ingredients, allergy) => {
     const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredients}&health=${allergy}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     return data.hits;
 };
+//recipes by ingredient
+
+export const fetchRecipesByIngredient = async (ingredients) => {
+    const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredients}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.hits;
+}
+
 
 
 
