@@ -22,6 +22,7 @@ const Food = () => {
     const [diet, setDiet] = useState('');
     const [allergy, setAllergy] = useState('');
     const [cuisineType, setCuisineType] = useState('');
+    const [loading, setLoading] = useState(false);
 
     //Favourite; saves after refresh
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
@@ -78,6 +79,7 @@ const Food = () => {
     const finalSearch = async (e) => {
         e.preventDefault(); // Prevent the form from submitting normally
         try {
+            setLoading(true);
             let data = [];
             if(mySearch) {
                 // Check if a diet has been selected
@@ -110,8 +112,10 @@ const Food = () => {
                 confirmButtonColor: "#00A19D",
                 text: error.message || 'An unexpected error occurred.',
             });
+        } finally {
+            setLoading(false); // Set loading to false
         }
-    }
+    };
 
 
     return (
