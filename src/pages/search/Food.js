@@ -10,7 +10,8 @@ import {
     fetchFilteredRecipes,
     fetchRecipesByAllergy,
     fetchRecipesByDiet,
-    fetchRecipesByIngredient
+    fetchRecipesByIngredient,
+    fetchRecipesByCuisineType
 } from "../../Service/RecipeService";
 
 const Food = () => {
@@ -85,7 +86,10 @@ const Food = () => {
                     data = await fetchRecipesByDiet(mySearch, diet);
                 } else if (allergy) {
                     data = await fetchRecipesByAllergy(mySearch, allergy)
-                } else {
+                }  else if (cuisineType) {
+                    data = await fetchRecipesByCuisineType(mySearch, cuisineType); // Search by cuisine type
+                }
+                else {
                     data = await fetchRecipesByIngredient(mySearch);
                 }
         } else {

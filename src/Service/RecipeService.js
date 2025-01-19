@@ -23,7 +23,12 @@ export const fetchRecipesByIngredient = async (ingredients) => {
     const data = await response.json();
     return data.hits;
 }
-
+export const fetchRecipesByCuisineType = async (ingredients, cuisineType) => {
+    const apiUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredients}&cuisineType=${cuisineType}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return data.hits;
+};
 
 
 
